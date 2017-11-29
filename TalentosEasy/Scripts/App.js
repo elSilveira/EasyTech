@@ -28,18 +28,50 @@ $(document).ready(function () {
 //Angular
 var app = angular.module("myApp", []);
 app.controller("contentCtrl", function ($scope, $http) {
-    
+
     var carregarTalentos = function () {
         $http.get("/api/Talento").then(function (data) {
             $scope.talentos = data.data;
         });
     }
 
+    $scope.editTalento = function (talento) {
+        $scope.talento = talento;
+        $('#btnEditar').removeAttr('hidden');
+        $('#btnNovo').removeAttr('hidden');; 
+    }
+
+    $scope.editarTalento = function () {
+        $('.carousel').carousel('next');
+        $('.carousel').carousel('pause');
+    }
+
+    $scope.novoTalento = function () {
+        $scope.talento = [];
+        //$scope.talento.pristine();
+        $('#btnEditar').attr('hidden');
+        $('#btnNovo').attr('hidden');
+    }
+
+    $scope.deleteTalento = function (idTalento) {
+        var talentos = [];
+        angular.copy($scope.talentos, talentos);
+        console.log(idTalento);
+        $http.delete("/api/Talento/" + idTalento).then(function (data) {
+
+        });
+        $scope.talentos = talentos.filter(function (tal) {
+            if (tal.IdTalento != idTalento) {
+                return tal;
+            }
+        });
+        
+    }
     carregarTalentos();
 
     //Testes
-    $scope.mostrar = function () {
-        console.log($scope.talentos);
+    $scope.mostrar = function (valor) {
+        console.log(valor);
     }
 
     //seta conhecimentos gerando lista atualizando por click
@@ -63,11 +95,38 @@ app.controller("contentCtrl", function ($scope, $http) {
 
     //Salvar cadastro
     $scope.finalizarCadastro = function (talento) {
-        console.log(talento);
-        $http.post("/api/Talento", talento).success(function (data, data2) {
-            console.log(data);
-            console.log(data2);
-        });
+        if (talento.IdTalento == undefined) {
+            $http.post("/api/Talento", talento).then(function (data) {
+                $('.carousel').carousel(0);
+                $('.carousel').carousel('pause');
+                $scope.talentos.push(talento);
+            });
+        } else {
+            $http.put("/api/Talento/" + talento.IdTalento, talento).then(function (data) {
+                $('.carousel').carousel(0);
+                $('.carousel').carousel('pause');
+            });
+        }
     }
 
 });
+
+app.directive('ngConfirmClick', [
+    function () {
+        return {
+            priority: -1,
+            restrict: 'A',
+            scope: { confirmFunction: "&mwConfirmClick" },
+            link: function (scope, element, attrs) {
+                element.bind('click', function (e) {
+                    // message defaults to "Are you sure?"
+                    var message = attrs.mwConfirmClickMessage ? attrs.mwConfirmClickMessage : "Are you sure?";
+                    // confirm() requires jQuery
+                    if (confirm(message)) {
+                        scope.confirmFunction();
+                    }
+                });
+            }
+        }
+    }
+]);

@@ -23,14 +23,16 @@
                             <br />
                             <h3>Talentos Cadastrados</h3>
                             <p>
-                                <table class="table table-striped" style="padding-top: 10px; width: 100%;  " >
+                                <table name="tableTalentos" class="table table-striped" style="padding-top: 10px;" >
                                     <tr>
+                                        <td></td>
                                         <td></td>
                                         <td >Nome</td>
                                         <td >Email</td>
                                     </tr>
                                     <tr ng-repeat="talento in talentos">
-                                        <td><input type="checkbox" ng-checked="talento.checked" /></td>
+                                        <td><i ng-click="editTalento(talento)" title="Edit" class="fa fa-edit"></i></td>
+                                        <td><i ng-confirm-click="Você tem certeza?" ng-click="deleteTalento(talento.IdTalento)" title="Delete" class="fa fa-remove"></i></td>
                                         <td>{{talento.NomeTalento}}</td>
                                         <td>{{talento.EmailTalento}}</td>
                                     </tr>
@@ -89,10 +91,12 @@
                             <h6>Banco de talentos:</h6> <br />
                             <p>Para inscrever-se em nosso banco de talentos preencha seu email. </p>
                             <form id="emailForm" name="emailForm">
-                                <input id="txtEmail" type="email" name="emailTalento" ng-model="talento.emailTalento" ng-required="required"
+                                <input id="txtEmail" type="email" name="emailTalento" ng-model="talento.EmailTalento" ng-required="required"
                                        class="form-control" placeholder="e-mail" />
                                 <div style="padding-top: 5px; padding-left: 5px;float: right" ;>
-                                    <button id="btnContinuar" ng-click="mostrar" ng-disabled="!talento.emailTalento  || emailForm.emailTalento.$invalid" class="btn btn-primary">Continuar</button>
+                                    <button hidden id="btnEditar" ng-click="editarTalento()" ng-disabled="!talento.IdTalento" class="btn btn-primary">Editar</button>
+                                    <button hidden id="btnNovo" ng-click="novoTalento()" ng-disabled="!talento.IdTalento" class="btn btn-primary">Novo</button>
+                                    <button id="btnContinuar" ng-disabled="talento.IdTalento || (!talento.EmailTalento  || emailForm.emailTalento.$invalid)" class="btn btn-primary">Continuar</button>
                                 </div>
                             </form>
                         </div>
@@ -106,28 +110,28 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="txtNome">Nome:</label>
-                                    <input id="txtNome" name="nomeTalento" ng-model="talento.nomeTalento" ng-required="required" type="text" class="form-control" placeholder="Nome" />
+                                    <input id="txtNome" name="nomeTalento" ng-model="talento.NomeTalento" ng-required="required" type="text" class="form-control" placeholder="Nome" />
 
                                     <label for="txtTelefone">Telefone:</label>
-                                    <input id="txtTelefone" type="tel" name="telefoneTalento" ng-model="talento.telefoneTalento" ng-required="required"
+                                    <input id="txtTelefone" type="tel" name="telefoneTalento" ng-model="talento.TelefoneTalento" ng-required="required"
                                            class="form-control" placeholder="(00)9999-9999" minlength="9" maxlength="14"/>
 
                                     <label for="txtSkype">Skype:</label>
-                                    <input id="txtSkype" type="text" name="skypeTalento" ng-model="talento.skypeTalento"  class="form-control" placeholder="Skype" />
+                                    <input id="txtSkype" type="text" name="skypeTalento" ng-model="talento.SkypeTalento"  class="form-control" placeholder="Skype" />
                                     
                                     
                                     <label for="txtLinkedin">Linkedin:</label>
-                                    <input id="txtLinkedin" type="text" name="linkedinTalento" ng-model="talento.linkedinTalento"  class="form-control" placeholder="Linkedin" />
+                                    <input id="txtLinkedin" type="text" name="linkedinTalento" ng-model="talento.LinkedinTalento"  class="form-control" placeholder="Linkedin" />
                                 </div>
                                 <div class="col-md-6">
                                     <label for="txtCidade">Cidade:</label>
-                                    <input id="txtCidade" type="text" name="cidadeTalento" ng-model="talento.cidadeTalento" class="form-control" placeholder="Cidade" />
+                                    <input id="txtCidade" type="text" name="cidadeTalento" ng-model="talento.CidadeTalento" class="form-control" placeholder="Cidade" />
                                     <label for="txtEstado">Estado:</label>
-                                    <input id="txtEstado" type="text" name="estadoTalento" ng-model="talento.estadoTalento"  class="form-control" placeholder="Estado" />
+                                    <input id="txtEstado" type="text" name="estadoTalento" ng-model="talento.EstadoTalento"  class="form-control" placeholder="Estado" />
                                     <label for="txtPortifolio">Portifolio:</label>
-                                    <input id="txtPortifolio" type="text" name="portifolioTalento" ng-model="talento.portifolioTalento"  class="form-control" placeholder="Portifolio" />
+                                    <input id="txtPortifolio" type="text" name="portifolioTalento" ng-model="talento.PortifolioTalento"  class="form-control" placeholder="Portifolio" />
                                     <div style="padding-top: 25px; padding-left: 5px;float: right" ;>
-                                        <button ng-disabled="!talento.nomeTalento || !talento.telefoneTalento" id="btnContinuar2" class="btn btn-primary">Continuar</button>
+                                        <button ng-disabled="!talento.NomeTalento || !talento.TelefoneTalento" id="btnContinuar2" class="btn btn-primary">Continuar</button>
                                     </div>
                                 </div>
                             </div>
@@ -139,27 +143,27 @@
                             <div class="col-md-4">
                                 <h6>Qual é sua disponibilidade para trabalhar hoje?</h6><br />
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.disponibilidadeTalento" ng-true-value="'Até 4 horas por dia'" type="checkbox" class="custom-control-input">
+                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'Até 4 horas por dia'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Até 4 horas por dia</span>
                                 </label><br />
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.disponibilidadeTalento" ng-true-value="'De 4 á 6 horas por dia'" type="checkbox" class="custom-control-input">
+                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'De 4 á 6 horas por dia'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">De 4 á 6 horas por dia</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.disponibilidadeTalento" ng-true-value="'De 6 á 8 horas por dia'" type="checkbox" class="custom-control-input">
+                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'De 6 á 8 horas por dia'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">De 6 á 8 horas por dia</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.disponibilidadeTalento" ng-true-value="'Acima de 8 horas por dia'" type="checkbox" class="custom-control-input">
+                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'Acima de 8 horas por dia'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Acima de 8 horas por dia (tem certeza?)</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.disponibilidadeTalento" ng-true-value="'Apenas finais de semana'" type="checkbox" class="custom-control-input">
+                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'Apenas finais de semana'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Apenas finais de semana</span>
                                 </label>
@@ -168,37 +172,38 @@
                             <div class="col-md-4">
                                 <h6>Pra você qual é o melhor horário para trabalhar?</h6><br />
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.horarioTalento" ng-true-value="'Manhã (de 08:00 ás 12:00)'" type="checkbox" class="custom-control-input">
+                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Manhã (de 08:00 ás 12:00)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Manhã (de 08:00 ás 12:00)</span>
                                 </label>
-                                <label ng-model="talento.horarioTalento" ng-true-value="'Tarde (de 13:00 ás 18:00)'" class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
+                                <label class="custom-control custom-checkbox">
+                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Tarde (de 13:00 ás 18:00)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Tarde (de 13:00 ás 18:00)</span>
                                 </label>
-                                <label ng-model="talento.horarioTalento" ng-true-value="'Noite (de 19:00 as 22:00)'" class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
+                                <label class="custom-control custom-checkbox">
+                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Noite (de 19:00 as 22:00)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Noite (de 19:00 as 22:00)</span>
                                 </label>
-                                <label ng-model="talento.horarioTalento" ng-true-value="'Madrugada (de 22:00 em diante)'" class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
+                                <label class="custom-control custom-checkbox">
+                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Madrugada (de 22:00 em diante)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Madrugada (de 22:00 em diante)</span>
                                 </label>
-                                <label ng-model="talento.horarioTalento" ng-true-value="'Comercial (de 08:00 as 18:00)'" class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input">
+                                <label class="custom-control custom-checkbox">
+                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Comercial (de 08:00 as 18:00)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Comercial (de 08:00 as 18:00)</span>
                                 </label>
+                                @*<button ng-click="mostrar(talento.HorarioTalento)">teste</button>*@
                             </div>
                             <div class="col-md-4">
                                 <h6>Qual sua pretensão salarial por hora?</h6><br />
-                                <input  id="txtSalario" name="salario" ng-model="talento.salarioTalento" 
-                                       ng-required="required" type="number" style="text-align:left;" class="form-control" />
+                                <input  id="txtSalario" name="salario" ng-model="talento.PretencaoTalento" 
+                                       ng-required="required" type="text" style="text-align:left;" class="form-control" />
                                 <div style="padding-top: 25px; padding-left: 5px;float: right;">
-                                    <button id="btnContinuar3" ng-disabled="!talento.salarioTalento" class="btn btn-primary">Continuar</button>
+                                    <button id="btnContinuar3" ng-disabled="!talento.PretencaoTalento" class="btn btn-primary">Continuar</button>
                                 </div>
                             </div>
                         </div>
@@ -213,29 +218,29 @@
                             </div>
                             <div style="padding-top: 10px;" class="col-md-6">
                                 <label for="txtxNomeTalentoBanco">Nome:</label>
-                                <input id="txtxNomeTalentoBanco" name="nomeTalentoBanco" ng-model="talento.nomeTalentoBanco" type="text" class="form-control" placeholder="Nome" />
+                                <input id="txtxNomeTalentoBanco" name="nomeTalentoBanco" ng-model="talento.NomeTalentoBanco" type="text" class="form-control" placeholder="Nome" />
                                 
                                 <label for="txtCpf">CPF:</label>
-                                <input id="txtCpf" type="text" name="cpf" ng-model="talento.cpfTalento" class="form-control" placeholder="CPF" />
+                                <input id="txtCpf" type="text" name="cpf" ng-model="talento.CpfTalento" class="form-control" placeholder="CPF" />
                                 
                                 <label for="txtBanco">Banco:</label>
-                                <input id="txtBanco" type="text" name="NomeTalentoBanco" ng-model="talento.NomeTalentoBanco" class="form-control" placeholder="Banco ( Itau, Bradesco, ect..)" />
+                                <input id="txtBanco" type="text" name="bancoTalento" ng-model="talento.BancoTalento" class="form-control" placeholder="Banco ( Itau, Bradesco, ect..)" />
                             </div>
                             <div style="padding-top: 10px;" class="col-md-6">
                                 <label for="txtAgencia">Agencia:</label>
-                                <input id="txtAgencia" type="text" name="agenciaTalento" ng-model="talento.agenciaTalento" class="form-control" placeholder="Agencia" />
+                                <input id="txtAgencia" type="text" name="agenciaTalento" ng-model="talento.AgenciaTalento" class="form-control" placeholder="Agencia" />
                                 
                                 <label for="txtConta">Número da conta:</label>
-                                <input id="txtConta" type="text" name="contaTalento" ng-model="talento.contaTalento" class="form-control" placeholder="Número da conta" />
+                                <input id="txtConta" type="text" name="contaTalento" ng-model="talento.ContaTalento" class="form-control" placeholder="Número da conta" />
                                 
                                 <label style="padding-top: 5px;">Tipo de Conta:</label><br />
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.tipoContaTalento" ng-true-value="'Conta Corrente'" checked type="checkbox" class="custom-control-input">
+                                    <input ng-model="talento.TipoContaTalento" ng-true-value="'Conta Corrente'" checked type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Conta Corrente</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.tipoContaTalento" ng-true-value="'Conta Poupança'" type="checkbox" class="custom-control-input">
+                                    <input ng-model="talento.TipoContaTalento" ng-true-value="'Conta Poupança'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Conta Poupança</span>
                                 </label>
@@ -582,7 +587,6 @@
                                     <div class="col-sm-8" style="padding-right: 20px;">
                                         <input type="text" class="form-control" id="txtConhecimento" ng-model="talento.OutroConhecimentoTalento" />
                                         <div style="padding-top: 10px; padding-left: 5px; float: right;">
-                                            @*<button ng-click="mostrar(conhecimento)">teste</button>*@
                                             <button id="btnContinuar5" class="btn btn-primary">Continuar</button>
                                         </div>
                                     </div>

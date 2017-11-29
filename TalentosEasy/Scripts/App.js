@@ -28,7 +28,7 @@ $(document).ready(function () {
 //Angular
 var app = angular.module("myApp", []);
 app.controller("contentCtrl", function ($scope) {
-    $scope.talentos = [];
+    $scope.talentos = [{ nomeTalento: 'Eduardo', emailTalento: 'duzitz@gmail.com' }];
 
     //Testes
     $scope.mostrar = function (talento) {

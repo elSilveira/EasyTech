@@ -25,10 +25,12 @@
                             <p>
                                 <table class="table table-striped" style="padding-top: 10px; width: 100%;  " >
                                     <tr>
+                                        <td></td>
                                         <td >Nome</td>
                                         <td >Email</td>
                                     </tr>
                                     <tr ng-repeat="talento in talentos">
+                                        <td><input type="checkbox" ng-checked="talento.checked" /></td>
                                         <td>{{talento.nomeTalento}}</td>
                                         <td>{{talento.emailTalento}}</td>
                                     </tr>

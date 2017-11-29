@@ -7,8 +7,8 @@ using System.Web;
 
 namespace TalentosEasy.Models
 {
-    [Table("Talentos")]
-    public class Talentos
+    [Table("Talento")]
+    public class Talento
     {
         [Key]
         public int IdTalento { get; set; }

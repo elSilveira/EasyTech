@@ -8,14 +8,14 @@ using System.Web;
 namespace TalentosEasy.Models
 {
     [Table("Conhecimentos")]
-    public class Conhecimentos
+    public class Conhecimento
     {
         [Key]
-        public int IdTalento { get; set; }
-        [ForeignKey("idConhecimento")]
         public int IdConhecimento { get; set; }
 
-        public virtual Talentos Talentos { get; set; }
+        public int IdTalento { get; set; }
+        [ForeignKey("IdTalento")]
+        public virtual Talento Talento { get; set; }
 
         public string NomeConhecimento { get; set; }
     }

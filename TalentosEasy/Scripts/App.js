@@ -27,12 +27,19 @@ $(document).ready(function () {
 
 //Angular
 var app = angular.module("myApp", []);
-app.controller("contentCtrl", function ($scope) {
-    $scope.talentos = [{ nomeTalento: 'Eduardo', emailTalento: 'duzitz@gmail.com' }];
+app.controller("contentCtrl", function ($scope, $http) {
+    
+    var carregarTalentos = function () {
+        $http.get("/api/Talento").then(function (data) {
+            $scope.talentos = data.data;
+        });
+    }
+
+    carregarTalentos();
 
     //Testes
-    $scope.mostrar = function (talento) {
-        console.log(talento);
+    $scope.mostrar = function () {
+        console.log($scope.talentos);
     }
 
     //seta conhecimentos gerando lista atualizando por click
@@ -54,5 +61,13 @@ app.controller("contentCtrl", function ($scope) {
        
     }
 
-    
+    //Salvar cadastro
+    $scope.finalizarCadastro = function (talento) {
+        console.log(talento);
+        $http.post("/api/Talento", talento).success(function (data, data2) {
+            console.log(data);
+            console.log(data2);
+        });
+    }
+
 });

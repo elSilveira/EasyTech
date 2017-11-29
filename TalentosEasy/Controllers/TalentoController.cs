@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -73,17 +74,18 @@ namespace TalentosEasy.Controllers
 
         // POST: api/Talento
         [ResponseType(typeof(Talento))]
-        public IHttpActionResult PostTalento(Talento talento)
+        public IHttpActionResult PostTalento([FromBody]JObject talento)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.Talento.Add(talento);
+            Talento t = new Talento();
+            t = talento.ToObject<Talento>();
+            db.Talento.Add(t);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = talento.IdTalento }, talento);
+            return CreatedAtRoute("DefaultApi", new { id = t.IdTalento }, t);
         }
 
         // DELETE: api/Talento/5

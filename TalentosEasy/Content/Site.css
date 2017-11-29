@@ -1,0 +1,97 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: #590202;
+    color: white;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.content {
+    margin-bottom: 35px;
+}
+
+    .content p {
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .content a {
+        color: white;
+        text-decoration: underline;
+    }
+
+#title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#menuTop {
+    border-bottom: solid thin white;
+    margin: auto;
+}
+
+#menuBot {
+    margin: auto;
+    padding-right: 10px;
+}
+
+    #menuBot ul {
+        float: right;
+    }
+
+    #menuBot a {
+        color: white;
+        letter-spacing: 3px;
+    }
+
+        #menuBot a:hover {
+            cursor: pointer;
+            color: #AAAAAA;
+            text-decoration: none;
+        }
+
+        #menuBot a:after {
+            text-decoration: underline;
+        }
+
+    #divMenuBot {
+        margin-right: 10px;
+        float:right;
+    }
+
+        #menuBot li:hover {
+            margin-right: 10px;
+            background-color: rgb(82, 24, 24);
+        }
+
+.btnScale {
+    cursor: pointer;
+    width: 27px;
+}
+
+    .btnScale:hover {
+        cursor: pointer;
+        background-color: #AAAAAA;
+    }
+.selected {
+    background-color: white;
+}
+#imgEasy {
+    cursor: pointer;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #7c1619;
+}

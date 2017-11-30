@@ -55,7 +55,9 @@ namespace TalentosEasy.Controllers
                 return BadRequest();
             }
 
-            foreach(var c in talento.ConhecimentosTalento)
+
+            if (talento.ConhecimentosTalento != null)
+                foreach (var c in talento.ConhecimentosTalento)
                 db.Entry(c).State = EntityState.Modified;
 
 
@@ -91,11 +93,14 @@ namespace TalentosEasy.Controllers
             Talento t = new Talento();
             t = talento.ToObject<Talento>();
 
-            foreach (Conhecimento c in t.ConhecimentosTalento)
+            if(t.ConhecimentosTalento != null)
             {
-                db.Conhecimento.Add(c);
+                foreach (Conhecimento c in t.ConhecimentosTalento)
+                {
+                    db.Conhecimento.Add(c);
+                }
+                db.SaveChanges();
             }
-            db.SaveChanges();
 
             db.Talento.Add(t);           
             db.SaveChanges();

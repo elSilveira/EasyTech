@@ -12,10 +12,10 @@
 
         </div>
     </div>
-    <div class="content" style="padding-top: 180px;" ng-controller="contentCtrl">
+    <div id ="content" class="content" style="padding-top: 180px;" ng-controller="contentCtrl">
         <div id="carouselControls" class="col-md-12 carousel slide" data-ride="carousel">
             <div class="col-md-12  carousel-inner " role="listbox">
-                <div class="carousel-item active">
+                <div class="carousel-item active item-active">
                     <div class="row col-md-12">
                         <div class="col-md-3 ">
                             <h3>Olá Geek!</h3><br />
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="txtNome">Nome:</label>
-                                    <input id="txtNome" name="nomeTalento" ng-model="talento.NomeTalento" ng-required="required" type="text" class="form-control" placeholder="Nome" />
+                                    <input id="txtNome" name="nomeTalento" ng-model="talento.NomeTalento" ng-required="required" type="text" class="form-control nome" placeholder="Nome" />
 
                                     <label for="txtTelefone">Telefone:</label>
                                     <input id="txtTelefone" type="tel" name="telefoneTalento" ng-model="talento.TelefoneTalento" ng-required="required"
@@ -143,27 +143,27 @@
                             <div class="col-md-4">
                                 <h6>Qual é sua disponibilidade para trabalhar hoje?</h6><br />
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'Até 4 horas por dia'" type="checkbox" class="custom-control-input">
+                                    <input id="chkDisponibilidade1" ng-model="talento.DisponibilidadeTalento" ng-true-value="'Até 4 horas por dia'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Até 4 horas por dia</span>
                                 </label><br />
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'De 4 á 6 horas por dia'" type="checkbox" class="custom-control-input">
+                                    <input id="chkDisponibilidade2" ng-model="talento.DisponibilidadeTalento" ng-true-value="'De 4 á 6 horas por dia'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">De 4 á 6 horas por dia</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'De 6 á 8 horas por dia'" type="checkbox" class="custom-control-input">
+                                    <input id="chkDisponibilidade3" ng-model="talento.DisponibilidadeTalento" ng-true-value="'De 6 á 8 horas por dia'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">De 6 á 8 horas por dia</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'Acima de 8 horas por dia'" type="checkbox" class="custom-control-input">
+                                    <input id="chkDisponibilidade4" ng-model="talento.DisponibilidadeTalento" ng-true-value="'Acima de 8 horas por dia'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Acima de 8 horas por dia (tem certeza?)</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.DisponibilidadeTalento" ng-true-value="'Apenas finais de semana'" type="checkbox" class="custom-control-input">
+                                    <input id="chkDisponibilidade5" ng-model="talento.DisponibilidadeTalento" ng-true-value="'Apenas finais de semana'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Apenas finais de semana</span>
                                 </label>
@@ -172,27 +172,27 @@
                             <div class="col-md-4">
                                 <h6>Pra você qual é o melhor horário para trabalhar?</h6><br />
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Manhã (de 08:00 ás 12:00)'" type="checkbox" class="custom-control-input">
+                                    <input id="chkHorario1" ng-model="talento.HorarioTalento" ng-true-value="'Manhã (de 08:00 ás 12:00)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Manhã (de 08:00 ás 12:00)</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Tarde (de 13:00 ás 18:00)'" type="checkbox" class="custom-control-input">
+                                    <input id="chkHorario2" ng-model="talento.HorarioTalento" ng-true-value="'Tarde (de 13:00 ás 18:00)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Tarde (de 13:00 ás 18:00)</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Noite (de 19:00 as 22:00)'" type="checkbox" class="custom-control-input">
+                                    <input id="chkHorario3" ng-model="talento.HorarioTalento" ng-true-value="'Noite (de 19:00 as 22:00)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Noite (de 19:00 as 22:00)</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Madrugada (de 22:00 em diante)'" type="checkbox" class="custom-control-input">
+                                    <input id="chkHorario4" ng-model="talento.HorarioTalento" ng-true-value="'Madrugada (de 22:00 em diante)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Madrugada (de 22:00 em diante)</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.HorarioTalento" ng-true-value="'Comercial (de 08:00 as 18:00)'" type="checkbox" class="custom-control-input">
+                                    <input id="chkHorario5" ng-model="talento.HorarioTalento" ng-true-value="'Comercial (de 08:00 as 18:00)'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Comercial (de 08:00 as 18:00)</span>
                                 </label>
@@ -234,12 +234,12 @@
                                 
                                 <label style="padding-top: 5px;">Tipo de Conta:</label><br />
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.TipoContaTalento" ng-true-value="'Conta Corrente'" checked type="checkbox" class="custom-control-input">
+                                    <input id="chkContaCorrente" ng-model="talento.TipoContaTalento" ng-true-value="'Conta Corrente'" checked type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Conta Corrente</span>
                                 </label>
                                 <label class="custom-control custom-checkbox">
-                                    <input ng-model="talento.TipoContaTalento" ng-true-value="'Conta Poupança'" type="checkbox" class="custom-control-input">
+                                    <input id="chkContaPoupanca" ng-model="talento.TipoContaTalento" ng-true-value="'Conta Poupança'" type="checkbox" class="custom-control-input">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Conta Poupança</span>
                                 </label>
@@ -254,7 +254,6 @@
                     <div class="container">
                         <div class="row" id="#conhecimentos">
                             <div class="col-sm-12">
-                                <h6>Conhecimentos</h6>
                                 Avalie-se de 0 a 5 quanto aos conhecimentos especificados abaixo, e tudo bem se não souber de muitas coisas, o importante
                                 é que seja sincero!<br />
                                 <br />
@@ -266,12 +265,12 @@
                                     </div>
                                     <div class="col-sm-8">                                        
     @*<button ng-click="mostrar(talento.ConhecimentosTalento)">teste</button>*@
-                                        <button name="Ionic" ng-click="setConhecimento(talento, 'Ionic', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Ionic" ng-click="setConhecimento(talento, 'Ionic', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Ionic" ng-click="setConhecimento(talento, 'Ionic', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Ionic" ng-click="setConhecimento(talento, 'Ionic', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Ionic" ng-click="setConhecimento(talento, 'Ionic', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Ionic" ng-click="setConhecimento(talento, 'Ionic', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Ionic0" ng-click="setConhecimento(talento, 'Ionic', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Ionic1" ng-click="setConhecimento(talento, 'Ionic', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Ionic2" ng-click="setConhecimento(talento, 'Ionic', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Ionic3" ng-click="setConhecimento(talento, 'Ionic', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Ionic4" ng-click="setConhecimento(talento, 'Ionic', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Ionic5" ng-click="setConhecimento(talento, 'Ionic', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                         </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -279,12 +278,12 @@
                                         <h5 style="padding-top:5px;">Android</h5>
                                     </div>
                                     <div class="col-sm-8 btnList">
-                                        <button name="Android" ng-click="setConhecimento(talento, 'Android', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Android" ng-click="setConhecimento(talento, 'Android', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Android" ng-click="setConhecimento(talento, 'Android', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Android" ng-click="setConhecimento(talento, 'Android', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Android" ng-click="setConhecimento(talento, 'Android', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Android" ng-click="setConhecimento(talento, 'Android', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Android0" ng-click="setConhecimento(talento, 'Android', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Android1" ng-click="setConhecimento(talento, 'Android', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Android2" ng-click="setConhecimento(talento, 'Android', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Android3" ng-click="setConhecimento(talento, 'Android', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Android4" ng-click="setConhecimento(talento, 'Android', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Android5" ng-click="setConhecimento(talento, 'Android', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -292,12 +291,12 @@
                                         <h5 style="padding-top:5px;">IOS</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="IOS" ng-click="setConhecimento(talento, 'IOS', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="IOS" ng-click="setConhecimento(talento, 'IOS', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="IOS" ng-click="setConhecimento(talento, 'IOS', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="IOS" ng-click="setConhecimento(talento, 'IOS', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="IOS" ng-click="setConhecimento(talento, 'IOS', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="IOS" ng-click="setConhecimento(talento, 'IOS', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="IOS0" ng-click="setConhecimento(talento, 'IOS', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="IOS1" ng-click="setConhecimento(talento, 'IOS', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="IOS2" ng-click="setConhecimento(talento, 'IOS', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="IOS3" ng-click="setConhecimento(talento, 'IOS', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="IOS4" ng-click="setConhecimento(talento, 'IOS', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="IOS5" ng-click="setConhecimento(talento, 'IOS', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -305,12 +304,12 @@
                                         <h5 style="padding-top:5px;">HTML</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="HTML" ng-click="setConhecimento(talento, 'HTML', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="HTML" ng-click="setConhecimento(talento, 'HTML', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="HTML" ng-click="setConhecimento(talento, 'HTML', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="HTML" ng-click="setConhecimento(talento, 'HTML', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="HTML" ng-click="setConhecimento(talento, 'HTML', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="HTML" ng-click="setConhecimento(talento, 'HTML', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="HTML0" ng-click="setConhecimento(talento, 'HTML', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="HTML1" ng-click="setConhecimento(talento, 'HTML', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="HTML2" ng-click="setConhecimento(talento, 'HTML', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="HTML3" ng-click="setConhecimento(talento, 'HTML', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="HTML4" ng-click="setConhecimento(talento, 'HTML', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="HTML5" ng-click="setConhecimento(talento, 'HTML', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -318,12 +317,12 @@
                                         <h5 style="padding-top:5px;">CSS</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="CSS" ng-click="setConhecimento(talento, 'CSS', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="CSS" ng-click="setConhecimento(talento, 'CSS', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="CSS" ng-click="setConhecimento(talento, 'CSS', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="CSS" ng-click="setConhecimento(talento, 'CSS', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="CSS" ng-click="setConhecimento(talento, 'CSS', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="CSS" ng-click="setConhecimento(talento, 'CSS', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="CSS0" ng-click="setConhecimento(talento, 'CSS', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="CSS1" ng-click="setConhecimento(talento, 'CSS', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="CSS2" ng-click="setConhecimento(talento, 'CSS', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="CSS3" ng-click="setConhecimento(talento, 'CSS', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="CSS4" ng-click="setConhecimento(talento, 'CSS', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="CSS5" ng-click="setConhecimento(talento, 'CSS', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -331,12 +330,12 @@
                                         <h5 style="padding-top:5px;">Bootstrap</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Bootstrap" ng-click="setConhecimento(talento, 'Bootstrap', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Bootstrap" ng-click="setConhecimento(talento, 'Bootstrap', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Bootstrap" ng-click="setConhecimento(talento, 'Bootstrap', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Bootstrap" ng-click="setConhecimento(talento, 'Bootstrap', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Bootstrap" ng-click="setConhecimento(talento, 'Bootstrap', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Bootstrap" ng-click="setConhecimento(talento, 'Bootstrap', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Bootstrap0" ng-click="setConhecimento(talento, 'Bootstrap', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Bootstrap1" ng-click="setConhecimento(talento, 'Bootstrap', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Bootstrap2" ng-click="setConhecimento(talento, 'Bootstrap', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Bootstrap3" ng-click="setConhecimento(talento, 'Bootstrap', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Bootstrap4" ng-click="setConhecimento(talento, 'Bootstrap', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Bootstrap5" ng-click="setConhecimento(talento, 'Bootstrap', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -344,12 +343,12 @@
                                         <h5 style="padding-top:5px;">Jquery</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Jquery" ng-click="setConhecimento(talento, 'Jquery', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Jquery" ng-click="setConhecimento(talento, 'Jquery', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Jquery" ng-click="setConhecimento(talento, 'Jquery', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Jquery" ng-click="setConhecimento(talento, 'Jquery', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Jquery" ng-click="setConhecimento(talento, 'Jquery', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Jquery" ng-click="setConhecimento(talento, 'Jquery', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Jquery0" ng-click="setConhecimento(talento, 'Jquery', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Jquery1" ng-click="setConhecimento(talento, 'Jquery', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Jquery2" ng-click="setConhecimento(talento, 'Jquery', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Jquery3" ng-click="setConhecimento(talento, 'Jquery', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Jquery4" ng-click="setConhecimento(talento, 'Jquery', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Jquery5" ng-click="setConhecimento(talento, 'Jquery', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -357,12 +356,12 @@
                                         <h5 style="padding-top:5px;">AngularJs</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="AngularJs" ng-click="setConhecimento(talento, 'AngularJs', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="AngularJs" ng-click="setConhecimento(talento, 'AngularJs', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="AngularJs" ng-click="setConhecimento(talento, 'AngularJs', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="AngularJs" ng-click="setConhecimento(talento, 'AngularJs', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="AngularJs" ng-click="setConhecimento(talento, 'AngularJs', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="AngularJs" ng-click="setConhecimento(talento, 'AngularJs', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="AngularJs0" ng-click="setConhecimento(talento, 'AngularJs', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="AngularJs1" ng-click="setConhecimento(talento, 'AngularJs', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="AngularJs2" ng-click="setConhecimento(talento, 'AngularJs', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="AngularJs3" ng-click="setConhecimento(talento, 'AngularJs', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="AngularJs4" ng-click="setConhecimento(talento, 'AngularJs', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="AngularJs5" ng-click="setConhecimento(talento, 'AngularJs', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -370,12 +369,12 @@
                                         <h5 style="padding-top:5px;">Java</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Java" ng-click="setConhecimento(talento, 'Java', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Java" ng-click="setConhecimento(talento, 'Java', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Java" ng-click="setConhecimento(talento, 'Java', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Java" ng-click="setConhecimento(talento, 'Java', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Java" ng-click="setConhecimento(talento, 'Java', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Java" ng-click="setConhecimento(talento, 'Java', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Java0" ng-click="setConhecimento(talento, 'Java', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Java1" ng-click="setConhecimento(talento, 'Java', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Java2" ng-click="setConhecimento(talento, 'Java', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Java3" ng-click="setConhecimento(talento, 'Java', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Java4" ng-click="setConhecimento(talento, 'Java', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Java5" ng-click="setConhecimento(talento, 'Java', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                             </div>
@@ -385,12 +384,12 @@
                                         <h5 style="padding-top:5px;">Asp.Net</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Asp.Net" ng-click="setConhecimento(talento, 'Asp.Net', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Asp.Net" ng-click="setConhecimento(talento, 'Asp.Net', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Asp.Net" ng-click="setConhecimento(talento, 'Asp.Net', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Asp.Net" ng-click="setConhecimento(talento, 'Asp.Net', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Asp.Net" ng-click="setConhecimento(talento, 'Asp.Net', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Asp.Net" ng-click="setConhecimento(talento, 'Asp.Net', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Asp.Net0" ng-click="setConhecimento(talento, 'Asp.Net', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Asp.Net1" ng-click="setConhecimento(talento, 'Asp.Net', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Asp.Net2" ng-click="setConhecimento(talento, 'Asp.Net', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Asp.Net3" ng-click="setConhecimento(talento, 'Asp.Net', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Asp.Net4" ng-click="setConhecimento(talento, 'Asp.Net', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Asp.Net5" ng-click="setConhecimento(talento, 'Asp.Net', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -398,12 +397,12 @@
                                         <h5 style="padding-top:5px;">C</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="C" ng-click="setConhecimento(talento, 'C', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="C" ng-click="setConhecimento(talento, 'C', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="C" ng-click="setConhecimento(talento, 'C', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="C" ng-click="setConhecimento(talento, 'C', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="C" ng-click="setConhecimento(talento, 'C', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="C" ng-click="setConhecimento(talento, 'C', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="C0" ng-click="setConhecimento(talento, 'C', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="C1" ng-click="setConhecimento(talento, 'C', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="C2" ng-click="setConhecimento(talento, 'C', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="C3" ng-click="setConhecimento(talento, 'C', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="C4" ng-click="setConhecimento(talento, 'C', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="C5" ng-click="setConhecimento(talento, 'C', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -411,12 +410,12 @@
                                         <h5 style="padding-top:5px;">C++</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="C++" ng-click="setConhecimento(talento, 'C++', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="C++" ng-click="setConhecimento(talento, 'C++', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="C++" ng-click="setConhecimento(talento, 'C++', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="C++" ng-click="setConhecimento(talento, 'C++', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="C++" ng-click="setConhecimento(talento, 'C++', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="C++" ng-click="setConhecimento(talento, 'C++', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="C++0" ng-click="setConhecimento(talento, 'C++', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="C++1" ng-click="setConhecimento(talento, 'C++', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="C++2" ng-click="setConhecimento(talento, 'C++', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="C++3" ng-click="setConhecimento(talento, 'C++', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="C++4" ng-click="setConhecimento(talento, 'C++', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="C++5" ng-click="setConhecimento(talento, 'C++', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -424,12 +423,12 @@
                                         <h5 style="padding-top:5px;">Cake</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Cake" ng-click="setConhecimento(talento, 'Cake', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Cake" ng-click="setConhecimento(talento, 'Cake', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Cake" ng-click="setConhecimento(talento, 'Cake', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Cake" ng-click="setConhecimento(talento, 'Cake', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Cake" ng-click="setConhecimento(talento, 'Cake', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Cake" ng-click="setConhecimento(talento, 'Cake', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Cake0" ng-click="setConhecimento(talento, 'Cake', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Cake1" ng-click="setConhecimento(talento, 'Cake', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Cake2" ng-click="setConhecimento(talento, 'Cake', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Cake3" ng-click="setConhecimento(talento, 'Cake', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Cake4" ng-click="setConhecimento(talento, 'Cake', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Cake5" ng-click="setConhecimento(talento, 'Cake', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -437,12 +436,12 @@
                                         <h5 style="padding-top:5px;">Django</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Django" ng-click="setConhecimento(talento, 'Django', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Django" ng-click="setConhecimento(talento, 'Django', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Django" ng-click="setConhecimento(talento, 'Django', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Django" ng-click="setConhecimento(talento, 'Django', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Django" ng-click="setConhecimento(talento, 'Django', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Django" ng-click="setConhecimento(talento, 'Django', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Django0" ng-click="setConhecimento(talento, 'Django', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Django1" ng-click="setConhecimento(talento, 'Django', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Django2" ng-click="setConhecimento(talento, 'Django', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Django3" ng-click="setConhecimento(talento, 'Django', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Django4" ng-click="setConhecimento(talento, 'Django', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Django5" ng-click="setConhecimento(talento, 'Django', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -450,12 +449,12 @@
                                         <h5 style="padding-top:5px;">Majento</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Majento" ng-click="setConhecimento(talento, 'Majento', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Majento" ng-click="setConhecimento(talento, 'Majento', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Majento" ng-click="setConhecimento(talento, 'Majento', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Majento" ng-click="setConhecimento(talento, 'Majento', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Majento" ng-click="setConhecimento(talento, 'Majento', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Majento" ng-click="setConhecimento(talento, 'Majento', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Majento0" ng-click="setConhecimento(talento, 'Majento', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Majento1" ng-click="setConhecimento(talento, 'Majento', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Majento2" ng-click="setConhecimento(talento, 'Majento', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Majento3" ng-click="setConhecimento(talento, 'Majento', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Majento4" ng-click="setConhecimento(talento, 'Majento', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Majento5" ng-click="setConhecimento(talento, 'Majento', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -463,12 +462,12 @@
                                         <h5 style="padding-top:5px;">PHP</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="PHP" ng-click="setConhecimento(talento, 'PHP', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="PHP" ng-click="setConhecimento(talento, 'PHP', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="PHP" ng-click="setConhecimento(talento, 'PHP', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="PHP" ng-click="setConhecimento(talento, 'PHP', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="PHP" ng-click="setConhecimento(talento, 'PHP', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="PHP" ng-click="setConhecimento(talento, 'PHP', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="PHP0" ng-click="setConhecimento(talento, 'PHP', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="PHP1" ng-click="setConhecimento(talento, 'PHP', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="PHP2" ng-click="setConhecimento(talento, 'PHP', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="PHP3" ng-click="setConhecimento(talento, 'PHP', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="PHP4" ng-click="setConhecimento(talento, 'PHP', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="PHP5" ng-click="setConhecimento(talento, 'PHP', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
 
@@ -477,12 +476,12 @@
                                         <h5 style="padding-top:5px;">Wordpress</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Wordpress" ng-click="setConhecimento(talento, 'Wordpress', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Wordpress" ng-click="setConhecimento(talento, 'Wordpress', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Wordpress" ng-click="setConhecimento(talento, 'Wordpress', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Wordpress" ng-click="setConhecimento(talento, 'Wordpress', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Wordpress" ng-click="setConhecimento(talento, 'Wordpress', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Wordpress" ng-click="setConhecimento(talento, 'Wordpress', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Wordpress0" ng-click="setConhecimento(talento, 'Wordpress', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Wordpress1" ng-click="setConhecimento(talento, 'Wordpress', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Wordpress2" ng-click="setConhecimento(talento, 'Wordpress', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Wordpress3" ng-click="setConhecimento(talento, 'Wordpress', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Wordpress4" ng-click="setConhecimento(talento, 'Wordpress', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Wordpress5" ng-click="setConhecimento(talento, 'Wordpress', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -490,12 +489,12 @@
                                         <h5 style="padding-top:5px;">Phyton</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Phyton" ng-click="setConhecimento(talento, 'Phyton', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Phyton" ng-click="setConhecimento(talento, 'Phyton', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Phyton" ng-click="setConhecimento(talento, 'Phyton', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Phyton" ng-click="setConhecimento(talento, 'Phyton', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Phyton" ng-click="setConhecimento(talento, 'Phyton', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Phyton" ng-click="setConhecimento(talento, 'Phyton', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Phyton0" ng-click="setConhecimento(talento, 'Phyton', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Phyton1" ng-click="setConhecimento(talento, 'Phyton', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Phyton2" ng-click="setConhecimento(talento, 'Phyton', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Phyton3" ng-click="setConhecimento(talento, 'Phyton', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Phyton4" ng-click="setConhecimento(talento, 'Phyton', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Phyton5" ng-click="setConhecimento(talento, 'Phyton', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                             </div>
@@ -505,12 +504,12 @@
                                         <h5 style="padding-top:5px;">Ruby</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Ruby" ng-click="setConhecimento(talento, 'Ruby', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Ruby" ng-click="setConhecimento(talento, 'Ruby', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Ruby" ng-click="setConhecimento(talento, 'Ruby', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Ruby" ng-click="setConhecimento(talento, 'Ruby', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Ruby" ng-click="setConhecimento(talento, 'Ruby', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Ruby" ng-click="setConhecimento(talento, 'Ruby', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Ruby0" ng-click="setConhecimento(talento, 'Ruby', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Ruby1" ng-click="setConhecimento(talento, 'Ruby', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Ruby2" ng-click="setConhecimento(talento, 'Ruby', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Ruby3" ng-click="setConhecimento(talento, 'Ruby', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Ruby4" ng-click="setConhecimento(talento, 'Ruby', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Ruby5" ng-click="setConhecimento(talento, 'Ruby', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -518,12 +517,12 @@
                                         <h5 style="padding-top:5px;">My SQL Server</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="MySQLServer" ng-click="setConhecimento(talento, 'My SQL Server', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="MySQLServer" ng-click="setConhecimento(talento, 'My SQL Server', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="MySQLServer" ng-click="setConhecimento(talento, 'My SQL Server', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="MySQLServer" ng-click="setConhecimento(talento, 'My SQL Server', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="MySQLServer" ng-click="setConhecimento(talento, 'My SQL Server', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="MySQLServer" ng-click="setConhecimento(talento, 'My SQL Server', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="MySQLServer0" ng-click="setConhecimento(talento, 'My SQL Server', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="MySQLServer1" ng-click="setConhecimento(talento, 'My SQL Server', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="MySQLServer2" ng-click="setConhecimento(talento, 'My SQL Server', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="MySQLServer3" ng-click="setConhecimento(talento, 'My SQL Server', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="MySQLServer4" ng-click="setConhecimento(talento, 'My SQL Server', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="MySQLServer5" ng-click="setConhecimento(talento, 'My SQL Server', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -531,12 +530,12 @@
                                         <h5 style="padding-top:5px;">My SQL</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="MySQL" ng-click="setConhecimento(talento, 'MySQL', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="MySQL" ng-click="setConhecimento(talento, 'MySQL', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="MySQL" ng-click="setConhecimento(talento, 'MySQL', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="MySQL" ng-click="setConhecimento(talento, 'MySQL', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="MySQL" ng-click="setConhecimento(talento, 'MySQL', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="MySQL" ng-click="setConhecimento(talento, 'MySQL', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="MySQL0" ng-click="setConhecimento(talento, 'MySQL', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="MySQL1" ng-click="setConhecimento(talento, 'MySQL', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="MySQL2" ng-click="setConhecimento(talento, 'MySQL', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="MySQL3" ng-click="setConhecimento(talento, 'MySQL', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="MySQL4" ng-click="setConhecimento(talento, 'MySQL', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="MySQL5" ng-click="setConhecimento(talento, 'MySQL', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -544,12 +543,12 @@
                                         <h5 style="padding-top:5px;">Salesforce</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Salesforce" ng-click="setConhecimento(talento, 'Salesforce', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Salesforce" ng-click="setConhecimento(talento, 'Salesforce', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Salesforce" ng-click="setConhecimento(talento, 'Salesforce', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Salesforce" ng-click="setConhecimento(talento, 'Salesforce', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Salesforce" ng-click="setConhecimento(talento, 'Salesforce', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Salesforce" ng-click="setConhecimento(talento, 'Salesforce', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Salesforce0" ng-click="setConhecimento(talento, 'Salesforce', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Salesforce1" ng-click="setConhecimento(talento, 'Salesforce', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Salesforce2" ng-click="setConhecimento(talento, 'Salesforce', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Salesforce3" ng-click="setConhecimento(talento, 'Salesforce', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Salesforce4" ng-click="setConhecimento(talento, 'Salesforce', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Salesforce5" ng-click="setConhecimento(talento, 'Salesforce', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -557,12 +556,12 @@
                                         <h5 style="padding-top:5px;">Photoshop</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="Photoshop" ng-click="setConhecimento(talento, 'Photoshop', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="Photoshop" ng-click="setConhecimento(talento, 'Photoshop', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="Photoshop" ng-click="setConhecimento(talento, 'Photoshop', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="Photoshop" ng-click="setConhecimento(talento, 'Photoshop', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="Photoshop" ng-click="setConhecimento(talento, 'Photoshop', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="Photoshop" ng-click="setConhecimento(talento, 'Photoshop', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="Photoshop0" ng-click="setConhecimento(talento, 'Photoshop', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="Photoshop1" ng-click="setConhecimento(talento, 'Photoshop', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="Photoshop2" ng-click="setConhecimento(talento, 'Photoshop', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="Photoshop3" ng-click="setConhecimento(talento, 'Photoshop', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="Photoshop4" ng-click="setConhecimento(talento, 'Photoshop', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="Photoshop5" ng-click="setConhecimento(talento, 'Photoshop', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -570,12 +569,12 @@
                                         <h5 style="padding-top:5px;">SEO</h5>
                                     </div>
                                     <div class="col-sm-8">
-                                        <button name="SEO" ng-click="setConhecimento(talento, 'SEO', 0)" class="btn btn-sm btnScale" value="0">0</button>
-                                        <button name="SEO" ng-click="setConhecimento(talento, 'SEO', 1)" class="btn btn-sm btnScale" value="1">1</button>
-                                        <button name="SEO" ng-click="setConhecimento(talento, 'SEO', 2)" class="btn btn-sm btnScale" value="2">2</button>
-                                        <button name="SEO" ng-click="setConhecimento(talento, 'SEO', 3)" class="btn btn-sm btnScale" value="3">3</button>
-                                        <button name="SEO" ng-click="setConhecimento(talento, 'SEO', 4)" class="btn btn-sm btnScale" value="4">4</button>
-                                        <button name="SEO" ng-click="setConhecimento(talento, 'SEO', 5)" class="btn btn-sm btnScale" value="5">5</button>
+                                        <button name="SEO0" ng-click="setConhecimento(talento, 'SEO', 0)" class="btn btn-sm btnScale" value="0">0</button>
+                                        <button name="SEO1" ng-click="setConhecimento(talento, 'SEO', 1)" class="btn btn-sm btnScale" value="1">1</button>
+                                        <button name="SEO2" ng-click="setConhecimento(talento, 'SEO', 2)" class="btn btn-sm btnScale" value="2">2</button>
+                                        <button name="SEO3" ng-click="setConhecimento(talento, 'SEO', 3)" class="btn btn-sm btnScale" value="3">3</button>
+                                        <button name="SEO4" ng-click="setConhecimento(talento, 'SEO', 4)" class="btn btn-sm btnScale" value="4">4</button>
+                                        <button name="SEO5" ng-click="setConhecimento(talento, 'SEO', 5)" class="btn btn-sm btnScale" value="5">5</button>
                                     </div>
                                 </div>
                                 <div class="row col-sm-12">
@@ -610,7 +609,7 @@
                                     <a href="https://www.google.com/url?q=https://docs.google.com/document/d/145QuJ8-efr-pmNGV-2DOOGHD-1dc3MERSeL5g0XoqmM&sa=D&ust=1511885300064000&usg=AFQjCNGsBFDCCmpB9IgB2FHQU8WWIMw4yg">Welcome to Easy</a>
                                 </label><br /><br />
 
-                                <label for="txtNome">CRUD:</label>
+                                <label for="txtCrud">CRUD:</label>
                                 <input ng-model="talento.CrudTalento" type="text" class="form-control" placeholder="Crud" />
                                 <div style="padding-top: 25px; padding-left: 5px;float: right" ;>
                                     <button id="btnFinalizar" ng-click="finalizarCadastro(talento)" class="btn btn-primary">Finalizar</button>
@@ -622,7 +621,7 @@
             </div>
         </div>
     </div>
-    <div class="footer col-md-12" style="background-color: #590202; border-top: solid thin white; position: fixed; bottom: 0;">
+    @*<div class="footer col-md-12" style="background-color: #590202; border-top: solid thin white; position: fixed; bottom: 0;">
         <div class="col-sm-12" id="menuBot">
             <div id="divMenuBot">
                 <a class="nav-link" href="https://www.easycomtec.com">Easy</a>
@@ -635,5 +634,5 @@
             </div>
 
         </div>
-    </div>
+    </div>*@
 </div>

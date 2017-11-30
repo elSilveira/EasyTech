@@ -7,13 +7,13 @@ namespace TalentosEasy.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class first : IMigrationMetadata
+    public sealed partial class createtables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(createtables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711291703467_first"; }
+            get { return "201711301324395_createtables"; }
         }
         
         string IMigrationMetadata.Source

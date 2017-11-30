@@ -3,7 +3,7 @@ namespace TalentosEasy.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class first : DbMigration
+    public partial class createtables : DbMigration
     {
         public override void Up()
         {
@@ -12,12 +12,13 @@ namespace TalentosEasy.Migrations
                 c => new
                     {
                         IdConhecimento = c.Int(nullable: false, identity: true),
-                        IdTalento = c.Int(nullable: false),
                         NomeConhecimento = c.String(),
+                        NotaConhecimento = c.Int(nullable: false),
+                        Talento_IdTalento = c.Int(),
                     })
                 .PrimaryKey(t => t.IdConhecimento)
-                .ForeignKey("dbo.Talento", t => t.IdTalento, cascadeDelete: true)
-                .Index(t => t.IdTalento);
+                .ForeignKey("dbo.Talento", t => t.Talento_IdTalento)
+                .Index(t => t.Talento_IdTalento);
             
             CreateTable(
                 "dbo.Talento",
@@ -50,8 +51,8 @@ namespace TalentosEasy.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Conhecimentos", "IdTalento", "dbo.Talento");
-            DropIndex("dbo.Conhecimentos", new[] { "IdTalento" });
+            DropForeignKey("dbo.Conhecimentos", "Talento_IdTalento", "dbo.Talento");
+            DropIndex("dbo.Conhecimentos", new[] { "Talento_IdTalento" });
             DropTable("dbo.Talento");
             DropTable("dbo.Conhecimentos");
         }

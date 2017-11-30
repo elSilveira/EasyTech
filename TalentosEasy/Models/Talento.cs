@@ -32,5 +32,6 @@ namespace TalentosEasy.Models
         public string OutroConhecimentoTalento { get; set; }
         public string CrudTalento { get; set; }
 
+        public List<Conhecimento> ConhecimentosTalento { get; set; }
     }
 }

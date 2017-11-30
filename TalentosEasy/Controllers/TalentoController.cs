@@ -21,7 +21,11 @@ namespace TalentosEasy.Controllers
         // GET: api/Talento
         public IQueryable<Talento> GetTalento()
         {
-            return db.Talento;
+            var x = from t in db.Talento.Include(c => c.ConhecimentosTalento)
+                    select t;
+            var test = x.FirstOrDefault();
+           // (db..Include<Conhecimento>(db.Conhecimento).FirstOrDefault();
+           return db.Talento;
         }
 
         // GET: api/Talento/5
@@ -50,6 +54,10 @@ namespace TalentosEasy.Controllers
             {
                 return BadRequest();
             }
+
+            foreach(var c in talento.ConhecimentosTalento)
+                db.Entry(c).State = EntityState.Modified;
+
 
             db.Entry(talento).State = EntityState.Modified;
 
@@ -82,9 +90,15 @@ namespace TalentosEasy.Controllers
             }
             Talento t = new Talento();
             t = talento.ToObject<Talento>();
-            db.Talento.Add(t);
+
+            foreach (Conhecimento c in t.ConhecimentosTalento)
+            {
+                db.Conhecimento.Add(c);
+            }
             db.SaveChanges();
 
+            db.Talento.Add(t);           
+            db.SaveChanges();
             return CreatedAtRoute("DefaultApi", new { id = t.IdTalento }, t);
         }
 

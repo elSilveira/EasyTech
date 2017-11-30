@@ -191,23 +191,26 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Conhecimentos.cs" />
+    <Compile Include="Controllers\ConhecimentoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TalentoController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711291703467_first.cs" />
-    <Compile Include="Migrations\201711291703467_first.Designer.cs">
-      <DependentUpon>201711291703467_first.cs</DependentUpon>
+    <Compile Include="Migrations\201711301324395_createtables.cs" />
+    <Compile Include="Migrations\201711301324395_createtables.Designer.cs">
+      <DependentUpon>201711301324395_createtables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301343494_createtables1.cs" />
+    <Compile Include="Migrations\201711301343494_createtables1.Designer.cs">
+      <DependentUpon>201711301343494_createtables1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelDados.cs" />
     <Compile Include="Models\Conhecimento.cs" />
     <Compile Include="Models\Talento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Talentos.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -1062,8 +1065,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711291703467_first.resx">
-      <DependentUpon>201711291703467_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711301324395_createtables.resx">
+      <DependentUpon>201711301324395_createtables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301343494_createtables1.resx">
+      <DependentUpon>201711301343494_createtables1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

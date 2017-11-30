@@ -23,6 +23,7 @@ $(document).ready(function () {
         $(tg.currentTarget).addClass('selected');
     });
 
+
 }); 
 
 //Angular
@@ -35,10 +36,23 @@ app.controller("contentCtrl", function ($scope, $http) {
         });
     }
 
+    var marcarConhecimentos = function (ConhecimentosTalento) {
+        // console.log(ConhecimentosTalento);
+        $(ConhecimentosTalento).each(function (idx, val) {
+            $('.btnList button').each(function (ta, ev) {
+                if (ev.name == val.NomeConhecimento && ev.value == val.NotaConhecimento) {
+                    //console.log(ev);
+                    $(ev).addClass('selected');
+                }
+            });
+        });
+    }
+
     $scope.editTalento = function (talento) {
         $scope.talento = talento;
+        marcarConhecimentos(talento.ConhecimentosTalento);
         $('#btnEditar').removeAttr('hidden');
-        $('#btnNovo').removeAttr('hidden');; 
+        $('#btnNovo').removeAttr('hidden');
     }
 
     $scope.editarTalento = function () {
@@ -48,15 +62,14 @@ app.controller("contentCtrl", function ($scope, $http) {
 
     $scope.novoTalento = function () {
         $scope.talento = [];
-        //$scope.talento.pristine();
-        $('#btnEditar').attr('hidden');
-        $('#btnNovo').attr('hidden');
+        $('#btnEditar').attr("hidden", "true");
+        $('#btnNovo').attr("hidden", "true");
     }
 
     $scope.deleteTalento = function (idTalento) {
         var talentos = [];
         angular.copy($scope.talentos, talentos);
-        console.log(idTalento);
+        //console.log(idTalento);
         $http.delete("/api/Talento/" + idTalento).then(function (data) {
 
         });
@@ -65,7 +78,7 @@ app.controller("contentCtrl", function ($scope, $http) {
                 return tal;
             }
         });
-        
+
     }
     carregarTalentos();
 
@@ -75,26 +88,28 @@ app.controller("contentCtrl", function ($scope, $http) {
     }
 
     //seta conhecimentos gerando lista atualizando por click
-    $scope.setConhecimento = function (talento, conhecimento, nota) {
-        var titulo = conhecimento;
-        if (talento.conhecimentosTalento != undefined) {
-            var exist = talento.conhecimentosTalento.some(function (conhecimento, vs) {
-                talento.conhecimentosTalento[vs].nota = nota;
-                var conh = conhecimento.conhecimento;
+    $scope.setConhecimento = function (talento, NomeConhecimento, NotaConhecimento) {
+        var titulo = NomeConhecimento;
+        if (talento.ConhecimentosTalento != undefined) {
+
+            var exist = talento.ConhecimentosTalento.some(function (conhecimento, vs) {
+                if (talento.ConhecimentosTalento[vs].NomeConhecimento == NomeConhecimento)
+                    talento.ConhecimentosTalento[vs].NotaConhecimento = NotaConhecimento;
+                var conh = conhecimento.NomeConhecimento;
                 return titulo == conh;
             });
             if (!exist)
-                talento.conhecimentosTalento.push({ conhecimento: conhecimento, nota: nota });
+                talento.ConhecimentosTalento.push({ NomeConhecimento: NomeConhecimento, NotaConhecimento: NotaConhecimento });
         }
         else {
-                talento.conhecimentosTalento = [];
-                talento.conhecimentosTalento.push({ conhecimento: conhecimento, nota: nota });
+            talento.ConhecimentosTalento = [];
+            talento.ConhecimentosTalento.push({ NomeConhecimento: NomeConhecimento, NotaConhecimento: NotaConhecimento });
         }
-       
     }
 
     //Salvar cadastro
     $scope.finalizarCadastro = function (talento) {
+
         if (talento.IdTalento == undefined) {
             $http.post("/api/Talento", talento).then(function (data) {
                 $('.carousel').carousel(0);
@@ -107,6 +122,9 @@ app.controller("contentCtrl", function ($scope, $http) {
                 $('.carousel').carousel('pause');
             });
         }
+        $scope.talento = [];
+        $('#btnEditar').attr("hidden", "true");
+        $('#btnNovo').attr("hidden", "true");
     }
 
 });

@@ -111,17 +111,18 @@ namespace TalentosEasy.Controllers
         [ResponseType(typeof(Talento))]
         public IHttpActionResult DeleteTalento(int id)
         {
-            Talento talento = db.Talento.Find(id);
+            
+            Talento talento = (from t in  db.Talento.Include(c => c.ConhecimentosTalento)
+                              where t.IdTalento.Equals(id) 
+                              select t).FirstOrDefault();
             if (talento == null)
             {
                 return NotFound();
             }
             if (talento.ConhecimentosTalento != null)
             {
-                foreach(var x in talento.ConhecimentosTalento)
-                {
-                    db.Conhecimento.Remove(x);
-                }
+             
+                db.Conhecimento.RemoveRange(talento.ConhecimentosTalento);
                 db.SaveChanges();
 
             }

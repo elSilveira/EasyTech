@@ -105,7 +105,7 @@ namespace SeleniumEasy
 
             #region Conhecimentos
             //aguarda tela
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             wait.Until(ExpectedConditions.ElementExists(By.Id("btnContinuar5")));
             IWebElement element;
             element = driver.FindElement(By.Name("Ionic0"));
@@ -193,16 +193,20 @@ namespace SeleniumEasy
 
             #region Crud
             Thread.Sleep(1000);
-            wait.Until(ExpectedConditions.ElementExists(By.Id("txtCrud")));
-            element = driver.FindElement(By.Id("txtCrud"));
-            element.SendKeys("https://github.com/user/crud");
+            By txtCrud = By.XPath("//input[@id='txtCrud']");
+            By btnFinalizar = By.XPath("//button[@id='btnFinalizar']");
 
-            element = driver.FindElement(By.Id("btnFinalizar"));
-            element.Click();
+            wait.Until(ExpectedConditions.ElementExists(txtCrud));
+
+            //wait.Until(ExpectedConditions.ElementExists(By.Id("txtCrud")));
+            driver.FindElement(txtCrud).SendKeys("https://github.com/user/crud");
+
+            Thread.Sleep(200);
+            driver.FindElement(btnFinalizar).Click();
             #endregion
 
             Thread.Sleep(1000);
-            element = driver.FindElement(By.Id("tableTalentos"));
+            element = driver.FindElement(By.Name("tableTalentos"));
             if (element.Text.Contains("email@teste.com"))
             {
                 Console.WriteLine("Teste realizado com sucesso!");

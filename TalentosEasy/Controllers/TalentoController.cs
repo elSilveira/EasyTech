@@ -116,7 +116,15 @@ namespace TalentosEasy.Controllers
             {
                 return NotFound();
             }
+            if (talento.ConhecimentosTalento != null)
+            {
+                foreach(var x in talento.ConhecimentosTalento)
+                {
+                    db.Conhecimento.Remove(x);
+                }
+                db.SaveChanges();
 
+            }
             db.Talento.Remove(talento);
             db.SaveChanges();
 
